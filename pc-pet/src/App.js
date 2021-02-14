@@ -8,7 +8,9 @@ class App extends Component {
     this.state = {
       frog: "assets/frogs_sprite.gif",
       happiness: 1,
-      frogNames: ["Click to name your frogs.", ""] 
+      sleepiness: 0,
+      tweeted: false,
+      currTweet: ""
     };
 
     this.checkWellness = this.checkWellness.bind(this);
@@ -22,7 +24,8 @@ class App extends Component {
   selectSleep(event) {
     event.preventDefault();
     this.setState({
-      frog: "assets/sleep.gif"
+      frog: "assets/sleep.gif",
+      sleepiness: 0
     });
     setTimeout(() => {this.setState({
       frog: "assets/frogs_sprite.gif"
@@ -62,10 +65,14 @@ class App extends Component {
   selectPhone(event) {
     event.preventDefault();
     this.setState({
-      frog: "assets/iphone.gif"
+      frog: "assets/iphone.gif",
+      currTweet: "@jenlbuja: this is a tweet",
+      tweeted: true
     })
     setTimeout(() => {this.setState({
-      frog: "assets/frogs_sprite.gif"
+      frog: "assets/frogs_sprite.gif",
+      currTweet: "",
+      tweeted: false
     })}, 5000);
   }
 
@@ -88,14 +95,17 @@ class App extends Component {
             <img class="wellness button" src="assets/wellness_icon.gif" onClick={e => this.checkWellness(e)}/>
           </div>
           <div class="frogs-container">
+            { this.state.tweeted &&
             <div>
               <p class="tweet">
-                  @jenlbuja: this is a tweet.
+                  {this.state.currTweet}
               </p>
             </div>
-            <img class="frogs" src={this.state.frog}/>
+  }
+            
           </div>
           <div class="actions">
+          <img class="frogs" src={this.state.frog}/>
             <div class="top-row">
               <img class="button" src="assets/sleep_icon.gif" onClick={e => this.selectSleep(e)}/>
               <img class="button" src="assets/food_icon.gif"onClick={e => this.selectFood(e)}/>
