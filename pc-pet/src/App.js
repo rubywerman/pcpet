@@ -88,6 +88,11 @@ class App extends Component {
             <img class="wellness button" src="assets/wellness_icon.gif" onClick={e => this.checkWellness(e)}/>
           </div>
           <div class="frogs-container">
+            <div>
+              <p class="tweet">
+                  @jenlbuja: this is a tweet.
+              </p>
+            </div>
             <img class="frogs" src={this.state.frog}/>
           </div>
           <div class="actions">

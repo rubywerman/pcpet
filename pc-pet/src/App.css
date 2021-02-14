@@ -78,4 +78,18 @@
   top: 300px;
   width: 200px;
   height: 200px;
+  left: 50px;
+}
+
+.tweet {
+  background-color:lightblue;
+  border-radius: 25px;
+  position: relative;
+  top: 200px;
+  right: 800px;
+  padding: 5px;
+  width: 70px;
+  word-break: keep-all;
+  font-size: x-small;
+  float:right
 }
